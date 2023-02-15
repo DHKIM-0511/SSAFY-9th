@@ -26,18 +26,19 @@ public class 정곤이의단조증가하는수_6190 {
 			
 			for(int i = 0 ; i < n ; i++) {
 				for(int j = i+1 ; j < n ; j++ ) {
-					boolean danjo = true;
-					int temp = A[i] * A[j];
+					boolean danjo = true; 
+					int temp = A[i] * A[j];  
 					
-					String str = Integer.toString(temp);
+					String str = Integer.toString(temp); // int를 string으로 변환
 					for(int k = 1 ; k < str.length() ; k++) {
-						if(str.charAt(k)-'0' < (str.charAt(k-1)-'0')) {
-							danjo = false;
+						if(str.charAt(k)-'0' < (str.charAt(k-1)-'0')) { // 앞 인덱스에 저장된 값이 더 크면 
+							danjo = false; // 단조 증가하는 수 가 아님
 							break;
 						}
 					}
 					if(danjo) {
-						ans = Math.max(ans, temp);
+						// 단조면 크기 비교후 저장
+						ans = Math.max(ans, temp); 
 					}
 				}
 			}
