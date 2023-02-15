@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class 정곤이의단조증가하는수_6190 {
@@ -21,15 +23,24 @@ public class 정곤이의단조증가하는수_6190 {
 				A[i] = Integer.parseInt(st.nextToken());
 			}
 			
+			
 			for(int i = 0 ; i < n ; i++) {
 				for(int j = i+1 ; j < n ; j++ ) {
+					boolean danjo = true;
+					int temp = A[i] * A[j];
 					
-					if(A[i] * A[j] > ans && A[i]*A[j]) { // 단조 증가하는수인가? 에대한 조건..?
-						ans = A[i]*A[j];
+					String str = Integer.toString(temp);
+					for(int k = 1 ; k < str.length() ; k++) {
+						if(str.charAt(k)-'0' < (str.charAt(k-1)-'0')) {
+							danjo = false;
+							break;
+						}
+					}
+					if(danjo) {
+						ans = Math.max(ans, temp);
 					}
 				}
 			}
-			
 			
 			
 			System.out.println("#"+tc+" "+ans);
