@@ -18,7 +18,7 @@ public class 벌집 {
 				break;
 			}
 			start = end+1;
-			end = (ans*6)+1;
+			end = end+(ans*6);
 			ans++;
 		}
 			

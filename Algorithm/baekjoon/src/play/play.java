@@ -1,3 +1,5 @@
+package play;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +14,7 @@ public class play {
 		
 		for(int tc = 1 ; tc <= t ; tc++) {
 			
-			n = Integer.parseInt(br.readLine());
+			int n = Integer.parseInt(br.readLine());
 			char[][] arr = new char[n][n];
 			
 			for(int i = 0 ; i < n ; i++) {
@@ -29,8 +31,5 @@ public class play {
 			}
 			
 		}
-		
-		
-		
 	}
 }
