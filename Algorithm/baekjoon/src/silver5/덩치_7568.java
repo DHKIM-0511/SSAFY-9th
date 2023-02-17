@@ -1,4 +1,4 @@
-package 브루트포스;
+package silver5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
