@@ -44,38 +44,25 @@ public class 체스판다시칠하기_1018 {
 		int endy = y + 8;
 		int count = 0;
  
-		boolean TF = board[x][y];	// 첫 번째 칸의 색 
+		boolean tmp = board[x][y];	// 첫 번째 칸의 색 
  
 		for (int i = x; i < endx; i++) {
 			for (int j = y; j < endy; j++) {
- 
 				// 올바른 색이 아닐경우 count 1 증가 
-				if (board[i][j] != TF) {	
+				if (board[i][j] != tmp) 
 					count++;
-				}
 				
-				/* 
-				 * 다음 칸은 색이 바뀌므로
-				 * true라면 false로, false 라면 true 로
-				 * 값을 변경한다.
-				 */
-				TF = (!TF);
+				// 다음칸 색 swap
+				tmp = (!tmp);
 			}
-			
-			TF = !TF;
+			tmp = !tmp;
 		}
-		
-		/*
-		 *  첫 번째 칸을 기준으로 할 때의 색칠 할 개수(count)와
-		 *  첫 번째 칸의 색의 반대되는 색을 기준으로 할 때의
-		 *  색칠 할 개수(64 - count) 중 최솟값을 count 에 저장 
-		 */
+		// 첫번째칸 기준 색칠 개수 : cnt
+		// 반대색 기준 개수 : 64-cnt
 		count = Math.min(count, 64 - count);
 		
-		/*
-		 * 이전까지의 경우 중 최솟값보다 현재 count 값이
-		 * 더 작을 경우 최솟값을 갱신 
-		 */
+		//이전까지의 경우 중 최소값보다 현재 cnt값이
+		//더 작을 경우 최소값 갱신 
 		min = Math.min(min, count);
 	}
 }
