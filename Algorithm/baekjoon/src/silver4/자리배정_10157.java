@@ -20,7 +20,7 @@ public class 자리배정_10157 {
 	private static StringBuilder idx(int c, int r, int k) {
 		StringBuilder sb = new StringBuilder();
 		
-		//처음 인덱스 : (r-1 , 0 )
+		//처음 인덱스 : (1 , 1 )
 		int x = 1;
 		int y = 1;
 		
