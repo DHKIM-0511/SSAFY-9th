@@ -17,12 +17,12 @@ public class 카드2_2164 {
 		for(int i = 0 ; i < n ; i++)
 			card.offer(i+1);
 		
-		while(card.size()!=1) {
+		while(card.size()!=1) { // 카드가 한장남을때까지 반복
 			card.poll();
 			int a = card.poll();
 			card.offer(a);
 		}
 		
-		return card.poll();
+		return card.poll(); // 마지막 한장 리턴
 	}
 }

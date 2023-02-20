@@ -24,12 +24,12 @@ public class 자리배정_10157 {
 		int x = 1;
 		int y = 1;
 		
-		int cnt = 1;
+		int cnt = 1; // k값과 비교할 변수
 		
-		int cycle = 0;
+		int cycle = 0; // 한 싸이클 마다 바뀌는 인덱스계산을 위한 변수
 		
-		while(cnt!=k && cnt <= r*c) {
-			while(cnt!=k && cnt <= r*c) {
+		while(cnt!=k && cnt <= r*c) { // k값을 찾거나 모두 탐색
+			while(cnt!=k && cnt <= r*c) { // while문을 어떻게 빠져나올지 고민하다 둘다 써버림
 				cnt++;
 				y++;
 				if(y==r-cycle) break;
@@ -45,7 +45,7 @@ public class 자리배정_10157 {
 				if(y == cycle+1) break;
 			}
 			cycle++;
-			while(cnt!=k && cnt <= r*c) {
+			while(cnt!=k && cnt <= r*c) { // 4번째마다 인덱스가 바뀜
 				cnt++;
 				x--;
 				if(x == cycle+1) break;

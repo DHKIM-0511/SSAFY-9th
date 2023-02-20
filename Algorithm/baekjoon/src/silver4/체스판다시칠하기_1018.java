@@ -14,8 +14,6 @@ public class 체스판다시칠하기_1018 {
 		int m = Integer.parseInt(st.nextToken());
 		
 		board = new boolean[n][m];
-		
-		
 		for(int i = 0 ; i < n ; i++) {
 			String temp = br.readLine();
 			for(int j = 0 ; j < m ; j++) {
@@ -26,20 +24,21 @@ public class 체스판다시칠하기_1018 {
 			}
 		}
 		
-		int sr = n - 7;
-		int sc = m - 7;
+		int sr = n - 7; //행 범위 설정
+		int sc = m - 7; //열 범위 설정
 		
-		for (int i = 0; i < sr; i++) {
+		for (int i = 0; i < sr; i++) { 
 			for (int j = 0; j < sc; j++) {
-				find(i, j);
+				chess(i, j);
 			}
 		}
 		System.out.println(min);
 	}
-	static int min = 64;
+	static int min = 64; // 최대 8*8
 	static boolean[][] board;
-	
-	private static void find(int x, int y) {
+	// 0 ~ sr = x
+	// 0 ~ sc = y
+	private static void chess(int x, int y) {
 		int endx = x + 8;
 		int endy = y + 8;
 		int count = 0;
@@ -52,8 +51,7 @@ public class 체스판다시칠하기_1018 {
 				if (board[i][j] != tmp) 
 					count++;
 				
-				// 다음칸 색 swap
-				tmp = (!tmp);
+				tmp = !tmp; // 다음칸 색 swap
 			}
 			tmp = !tmp;
 		}
