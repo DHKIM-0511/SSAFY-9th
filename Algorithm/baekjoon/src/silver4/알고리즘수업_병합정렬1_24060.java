@@ -8,15 +8,15 @@ public class 알고리즘수업_병합정렬1_24060 {
 	static int[] tmp;
 	static int count = 0;
 	static int result = -1;
-	static int K;
-	
+	static int k;
+	 // 재귀함수 : 이 함수를 탈출할때까지( == 하나의 경우의수 완전히 탐색)
 	public static void merge_sort(int[] A, int start, int end) {
 		
-		if(start < end) {
+		if(start < end) { // start == end인 경우 = 1개로 나뉜경우 -> 동작 X  
 			int mid = (start + end) / 2;
-			merge_sort(A, start, mid);
+			merge_sort(A, start, mid); // 분할 부분
 			merge_sort(A, mid+1, end);
-			merge(A, start, mid, end);
+			merge(A, start, mid, end); // 정복 부분
 			
 		}
 	}
@@ -43,7 +43,7 @@ public class 알고리즘수업_병합정렬1_24060 {
 		t=0;
 		while(i <= end) {
 			count++;
-			if(count == K) {
+			if(count == k) {
 				result = tmp[t];
 				break;
 			}
@@ -56,7 +56,7 @@ public class 알고리즘수업_병합정렬1_24060 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
 		int n = Integer.parseInt(st.nextToken());
-		K = Integer.parseInt(st.nextToken());
+		k = Integer.parseInt(st.nextToken());
 		int[] arr = new int[n];
 		tmp = new int[n];
 		
@@ -70,3 +70,38 @@ public class 알고리즘수업_병합정렬1_24060 {
 		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

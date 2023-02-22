@@ -1,55 +1,61 @@
 package gold5;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+ 
 public class 별찍기_10_2447 {
 	static char[][] arr;
-	public static void main(String[] args) throws IOException{
+ 
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int n = Integer.parseInt(br.readLine());
-		
-		arr = new char[n][n];
-		star(0, 0, n, false);
-		
+		int N = Integer.parseInt(br.readLine());
+ 
+		arr = new char[N][N];
+        
+		star(0, 0, N, false);
+ 
+
 		StringBuilder sb = new StringBuilder();
-		for(int i = 0 ; i < n ; i++) {
-			for(int j = 0 ; j < n ; j++) {
+		for(int i = 0 ; i < N ; i++) {
+			for(int j = 0 ; j < N ; j++) {
 				sb.append(arr[i][j]);
 			}
 			sb.append("\n");
 		}
 		System.out.println(sb);
+
 	}
-	static void star(int x, int y, int n, boolean blank) {
-		
-		if(blank) {
-			for(int i = x ; i < x+n ; i++) {
-				for(int j = y ; j < y+n ; j++) {
-					arr[i][j]=' ';
+ 
+	static void star(int x, int y, int N, boolean blank) {
+ 
+		// 공백칸일 경우
+		if (blank) {
+			for (int i = x; i < x + N; i++) {
+				for (int j = y; j < y + N; j++) {
+					arr[i][j] = ' ';
 				}
 			}
 			return;
 		}
-		
-		if(n == 1) {
+ 
+		// 더이상 쪼갤 수 없는 블록일 때
+		if (N == 1) {
 			arr[x][y] = '*';
 			return;
 		}
-		
-		int size = n / 3;
-		int cnt = 0;
-		for(int i = x; i < x+n ; i += size) {
-			for(int j = y ; j < y+n ; j+=size) {
-				cnt++;
-				if(cnt == 5) {
+ 
+		int size = N / 3; // 한블록의 사이즈
+		int count = 0; // 블록 출력 카운트
+		for (int i = x; i < x + N; i += size) {
+			for (int j = y; j < y + N; j += size) {
+				count++;
+				if (count == 5) { // 공백 칸일 경우
 					star(i, j, size, true);
-				}else {
+				} else {
 					star(i, j, size, false);
 				}
 			}
 		}
 	}
-	
 }
