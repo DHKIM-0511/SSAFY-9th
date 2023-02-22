@@ -13,19 +13,23 @@ public class 롤케이크_3985 {
 		int[] cake = new int[l+1];
 		int n = Integer.parseInt(br.readLine());
 		int[][] p = new int[n][2];
-		int greed = -1;//많이받길 원한 사람
-		int pres = 1;
+		int greed = -1;	//많이받길 원한 사람
+		int pres = 1;  	// 실제 많이 받은 사람
 		int cnt = 0;
+		int max = -1;
 		
 		for(int i = 0 ; i < n ; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			p[i][0] = Integer.parseInt(st.nextToken());
 			p[i][1] = Integer.parseInt(st.nextToken());
-			int a = -1;
-			if(p[i][1]-p[i][0] > a) {
-				a=p[i][1]-p[i][0];
+			
+			
+			if(p[i][1]-p[i][0] > max) {
+				max = p[i][1]-p[i][0];
 				greed = i+1;
 			}
+			
+			
 			int tmp = 0;
 			for(int j = 0 ; j < l+1 ;j++) {
 				if(j <= p[i][1] && j >= p[i][0]) {
@@ -38,13 +42,9 @@ public class 롤케이크_3985 {
 					cnt=tmp;
 					pres = i+1;
 				}
-					
 			}
 		}
-
 		System.out.println(greed);
 		System.out.println(pres);
-		
-		
 	}
 }

@@ -22,12 +22,13 @@ public class 쇠막대기자르기_5432 {
 		Stack<Character> tmp = new Stack<>();
 		int barCnt = 0;
 		int ragCnt = 0;
+		
 		for(int i = 0 ; i < str.length() ; i++){
 			if(str.charAt(i)=='(') {
 				tmp.push(str.charAt(i));
 				barCnt++;
-			}else { // )인 경우
-				if(tmp.peek()=='(') { //.레이저 인 경우
+			}else { 				  	// )인 경우
+				if(tmp.peek()=='(') { 	//.레이저 인 경우
 					ragCnt++;
 					barCnt--;
 					if(ragCnt==1)
@@ -44,8 +45,8 @@ public class 쇠막대기자르기_5432 {
 					ragCnt = 0;
 				
 			}
-			
 		}
+		
 		for(char a : tmp) {
 			System.out.print(a);
 		}
