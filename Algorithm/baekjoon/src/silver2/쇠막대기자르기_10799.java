@@ -1,19 +1,17 @@
-package d4;
+package silver2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class 쇠막대기자르기_5432 {
+public class 쇠막대기자르기_10799 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int t = Integer.parseInt(br.readLine());
-		for(int tc = 1 ; tc <= t ;tc++) {
-			String str = br.readLine();
-			System.out.println("#"+tc+" "+cutting(str));
-		}
+		String str = br.readLine();
+		System.out.println(cutting(str));
+		
 	}
 
 	private static int cutting(String str) {

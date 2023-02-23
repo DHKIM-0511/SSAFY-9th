@@ -11,40 +11,34 @@ import java.util.Stack;
 //ans
 
 		//4 3 6 8 7 5 2 1 - 인풋
+//1~ n 수열
 
 public class 스택수열_1874 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-		
+		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
-		int[] arr = new int[n];
 		
-		for(int i = 0 ; i < n ; i++)
-			arr[i] = i+1;
+		Stack<Integer> stack = new Stack<>();
+		int start = 0;
 		
-		Stack<Integer> Input = new Stack<>();
-		for(int i = 0 ; i < n ;i++)
-			Input.push(Integer.parseInt(br.readLine()));
-		
-		Stack<Integer> by = new Stack<>();
-		Stack<Integer> ans = new Stack<>();
-		
-		
-		while(ans.size() != n) {
-			int i = 0;
-			if(arr[i] <= Input.peek()) {
-				by.push(arr[i]);
-				i++;
-				continue;
-			}else if ( arr[i] > Input.peek()) {
-				
-			}
-		}
+		for(int i = 0 ; i < n ;i++) {
+			int tmp = Integer.parseInt(br.readLine());
 			
-		
-		
-		
-		
+			if(tmp > start) {
+				for(int j = start+1  ; j <= tmp ; j++) {
+					stack.push(j);
+					sb.append("+").append("\n");
+				}
+				start = tmp;
+			}else if(stack.peek() != tmp) {
+				System.out.println("NO");
+				return;
+			}
+			stack.pop();
+			sb.append("-").append("\n");
+		}
+		System.out.println(sb);
 		
 	}
 }

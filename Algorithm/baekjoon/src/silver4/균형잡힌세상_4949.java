@@ -11,24 +11,24 @@ public class 균형잡힌세상_4949 {
 		
 		while(true) {
 			String tmp = br.readLine();
-			if(tmp ==".")
+			if(tmp.equals("."))
 				break;
-			else {
-				if(check(tmp))
-					System.out.println("yes");
-				else
-					System.out.println("no");
-			}
+			
+			if(check(tmp))
+				System.out.println("yes");
+			else
+				System.out.println("no");
+			
 		}
 	}
 
 	private static boolean check(String tmp) {
 		Stack<Character> s = new Stack<>(); 
-		 if (tmp.length()==0) {
-		        return false;
-		 }
-		for(char c : tmp.toCharArray()) {
-			if(c == '(' || c=='[') {
+		 
+		for(int i = 0 ; i < tmp.length() ; i++) {
+			char c = tmp.charAt(i);
+			
+			if( c == '(' || c=='[') {
 				s.push(c);
 			}else if(c == ')' || c==']') {
 				if(c == ')') {
@@ -46,6 +46,7 @@ public class 균형잡힌세상_4949 {
 		}
 		if(!s.isEmpty())
 			return false;
+		
 		return true;
 	}
 }
