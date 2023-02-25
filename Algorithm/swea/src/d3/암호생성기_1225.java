@@ -3,13 +3,12 @@ package d3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 암호생성기_1225 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		for(int t = 0 ; t < 10 ; t++) {
 		int tc = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
@@ -31,7 +30,6 @@ public class 암호생성기_1225 {
 					break out;
 				}else
 					front = (front+1) % 8;
-				System.out.println(Arrays.toString(pw));
 			}
 			
 		}
@@ -41,6 +39,7 @@ public class 암호생성기_1225 {
 			front = (front+1) % 8;
 		}
 		System.out.println("#"+tc+" "+sb);
+		}
 	}
+		
 }
-// cycle : 5 , 원소의 최소는 0이고 0이되면 종료 이시점의 값 = 암호
