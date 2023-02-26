@@ -42,7 +42,6 @@ public class 계산기3_1224 {
 					}
 					tmp.push(c); // 아니면 푸시
 					
-					
 				}else if(c=='(') { // ( 연산 저장
 					tmp.push(c);
 				}else if(c==')'){
@@ -57,6 +56,7 @@ public class 계산기3_1224 {
 			}
 
 			Stack<Integer> dum = new Stack<>();	// 피 연산자 스택
+			
 			for(int i = 0 ; i < postfix.length() ; i++) {
 				char q = postfix.charAt(i);
 				if(Character.isDigit(q)) {

@@ -15,8 +15,9 @@ public class View_1206 {
 			int n = Integer.parseInt(br.readLine());
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int ans = 0;
-			int[] H = new int[n]; //
-			for(int i = 0 ; i < n ; i++) { // 각 건물의 높이 배열저장
+			 // 각 건물의 높이를 배열에저장
+			int[] H = new int[n]; 
+			for(int i = 0 ; i < n ; i++) {
 				H[i] = Integer.parseInt(st.nextToken());
 			}
 			

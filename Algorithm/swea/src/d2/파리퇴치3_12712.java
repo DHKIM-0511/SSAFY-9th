@@ -47,7 +47,7 @@ public class 파리퇴치3_12712 {
                     int[] dr1 = { 0 , 0, -a, a }; // 좌 우 상 하
                       int[] dc1 = { -a, a, 0 , 0 };
                       
-                      int[] dr2 = { -a, -a , a, a}; // 
+                      int[] dr2 = { -a, -a , a, a}; // 각 대각선
                       int[] dc2 = { a, -a, -a, a};
                       
                       for(int b = 0 ; b < 4 ; b++) {
