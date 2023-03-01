@@ -1,8 +1,8 @@
-package IM대비;
+package bronze2;
 
 import java.util.Scanner;
 
-public class 벌집 {
+public class 벌집_2292 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		//1~1 / 2~ 7(6) / 8 ~ 19 (12) /20 ~ 37 (18)
