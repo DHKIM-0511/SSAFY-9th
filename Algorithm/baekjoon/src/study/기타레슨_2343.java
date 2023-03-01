@@ -1,4 +1,4 @@
-package silver1;
+package study;
 
 import java.io.BufferedReader;
 import java.io.IOException;
