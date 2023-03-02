@@ -8,43 +8,38 @@ import java.util.StringTokenizer;
 public class 롤케이크_3985 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int len = Integer.parseInt(br.readLine());
+		int[] cake = new int[len + 1];
+		int N = Integer.parseInt(br.readLine());
 		
-		int l = Integer.parseInt(br.readLine());
-		int[] cake = new int[l+1];
-		int n = Integer.parseInt(br.readLine());
-		int[][] p = new int[n][2];
-		int greed = -1;	//많이받길 원한 사람
-		int pres = 1;  	// 실제 많이 받은 사람
-		int cnt = 0;
-		int max = -1;
-		
-		for(int i = 0 ; i < n ; i++) {
+		int[][] arr = new int[N][2];
+		int expect = 0; // 가장 많이 원한 사람
+		int maxIdx = 0; // 가장 많이 받은 사람
+		int maxVal = 0; // 많이 받은 개수
+		for(int i=0; i<N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			p[i][0] = Integer.parseInt(st.nextToken());
-			p[i][1] = Integer.parseInt(st.nextToken());
+			int start = Integer.parseInt(st.nextToken());
+			int end = Integer.parseInt(st.nextToken());
+			arr[i][0] = start;
+			arr[i][1] = end;
+			//최대값 비교
+			if(arr[expect][1] - arr[expect][0] < end - start)
+				expect = i;
 			
-			
-			if(p[i][1]-p[i][0] > max) {
-				max = p[i][1]-p[i][0];
-				greed = i+1;
+			int count = 0;
+			for(int j=0; j<end - start + 1; j++) {
+				if(cake[start + j] == 0) {
+					cake[start + j] = i+1;
+					count++;
+				}
 			}
-			
-			
-			int tmp = 0;
-			for(int j = 0 ; j < l+1 ;j++) {
-				if(j <= p[i][1] && j >= p[i][0]) {
-					if(cake[j] != 0) {
-						cake[j]=i+1;
-						tmp++;
-					}
-				}
-				if(cnt < tmp) {
-					cnt=tmp;
-					pres = i+1;
-				}
+			if(count > maxVal) {
+				maxVal = count;
+				maxIdx = i;
 			}
 		}
-		System.out.println(greed);
-		System.out.println(pres);
+		
+		System.out.println(expect+1);
+		System.out.println(maxIdx+1);
 	}
 }

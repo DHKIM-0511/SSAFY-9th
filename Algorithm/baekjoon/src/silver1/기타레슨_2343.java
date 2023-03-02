@@ -14,8 +14,6 @@ public class 기타레슨_2343 {
 		int m = Integer.parseInt(st.nextToken()); // 블루레이 수
 		
 		int[] time = new int[n]; // 각 강의 소요시간
-		
-		
 		int left  = 0; 
         int right  = 0; 
 		
