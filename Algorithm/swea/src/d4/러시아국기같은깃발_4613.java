@@ -12,6 +12,7 @@ public class 러시아국기같은깃발_4613 {
 	static int n;
 	static int m;
 	static Queue<Integer> queue = new LinkedList<>();
+	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -23,17 +24,19 @@ public class 러시아국기같은깃발_4613 {
 			 m = Integer.parseInt(st.nextToken());
 			
 			flag = new char[n][m];
-			
+			//주어진 배열입력
 			for(int i = 0 ; i < n ; i++) {
 				String tmp = br.readLine();
 				for(int j = 0 ; j < m ; j++) {
 					flag[i][j] = tmp.charAt(j);
 				}
 			}
+			
 			makeFlag('W', 0, 0);
+			
 			int minCnt = n * m + 1;
 			int size = queue.size();
-			
+			//최소값 출력
 			for (int i = 0; i < size; i++) {
 				int value = queue.poll();
 				minCnt = (value < minCnt) ? value : minCnt;
@@ -42,6 +45,7 @@ public class 러시아국기같은깃발_4613 {
 		}
 		
 	}
+	
 	public static void makeFlag(char color, int line, int sum) {
 		
 		int cnt = sum;

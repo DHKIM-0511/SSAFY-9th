@@ -17,6 +17,7 @@ public class 토마토_7576 {
 	static int n;
 	static int m;
 	
+	//익은 토마토의 위치.
 	public static class dot {
 		int x;
 		int y;
@@ -34,7 +35,7 @@ public class 토마토_7576 {
 		n = Integer.parseInt(st.nextToken());
 		int[][] map = new int[n][m];
 		
-		//익은 토마토의 위치.
+
 		Queue<dot> dq = new LinkedList<>();
 		boolean check = false;
 		for(int i = 0 ; i < n ; i ++) {
