@@ -74,52 +74,58 @@ public class 러시아국기같은깃발_4613 {
 		}
 	}
 }
-
-//Queue<String> flag = new LinkedList<>();
+ // 교수님 풀이
+//import java.util.Scanner;
 //
-//for(int i = 0 ; i < n ; i++)
-//	flag.offer(br.readLine());
-
-//front 가 W면 W or B /B면 B or R / R이면 무조건 R 
-
-//for(char a : flag.poll().toCharArray()) { // 첫번째행 무조건 W
-//	if(a!='W')
-//		change++;
+//public class Solution {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//         
+//        int T = sc.nextInt();
+//        for(int tc=1; tc<=T; tc++) {
+//            int N = sc.nextInt();
+//            int M = sc.nextInt();
+//             
+//            char[][] map = new char[N][M];
+//            for(int r=0; r<N; r++) {
+//                String str = sc.next();
+//                char[] arr = str.toCharArray();
+//                for(int c=0; c<M; c++) {
+//                    map[r][c] = arr[c];
+//                }
+//            }
+//             
+//            int min = Integer.MAX_VALUE;
+//            for(int b=1; b<N-1; b++) {
+//                for(int r=1; r<N; r++) {
+//                    int cnt = 0;
+//                     
+//                    // [0, b)
+//                    for(int i=0; i<b; i++) {
+//                        for(int j=0; j<M; j++) {
+//                            if(map[i][j] != 'W') cnt++;
+//                        }
+//                    }
+//                    // [b, r)
+//                    for(int i=b; i<r; i++) {
+//                        for(int j=0; j<M; j++) {
+//                            if(map[i][j] != 'B') cnt++;
+//                        }
+//                    }
+//                     
+//                    // [r, N)
+//                    for(int i=r; i<N; i++) {
+//                        for(int j=0; j<M; j++) {
+//                            if(map[i][j] != 'R') cnt++;
+//                        }
+//                    }
+//                     
+//                    if (cnt < min) {
+//                        min = cnt;
+//                    }
+//                }
+//            }
+//            System.out.println("#"+tc+" "+min);
+//        }
+//    }
 //}
-
-//	for(int i = 1 ; i< n ; i++) {
-//		if(check == 0) { // 이전행이 W면
-//			for(char a : flag.poll().toCharArray()) {
-//				if(a=='W')
-//					wCnt++;
-//				else if(a=='B')
-//					bCnt++;
-//			}
-//			if(wCnt > bCnt) {
-//				change+=wCnt;
-//				check=0;
-//			}else {
-//				change+=bCnt;
-//				check=1;
-//			}
-//		}else if(check == 1) { // 이전행이 B면
-//			for(char a : flag.poll().toCharArray()) { 
-//				if(a=='B')
-//					bCnt++;
-//				else if(a=='R')
-//					rCnt++;
-//			}
-//			if(bCnt > rCnt) {
-//				change+=bCnt;
-//				check=1;
-//			}else {
-//				change+=rCnt;
-//				check=2;
-//			}
-//		}else if(check == 2) { // 이전행이 R이면
-//			for(char a : flag.poll().toCharArray()) { 
-//				if(a !='R')
-//					change++;
-//			}
-//		}
-//	}

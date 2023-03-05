@@ -1,85 +1,45 @@
 package gold4;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class NQueen_9663 {
-	static int n;
-	static boolean[][] board;
-	static boolean[][] checked;
-	static int cnt;
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		board = new boolean[n][n];
-		
-		for(int i = 0 ; i < n ; i++)
-			nQeen(i);
-		
-		System.out.println(cnt);
-//		System.out.println(nQeen(n));
-	}
+    static int[] col;
+    static int n;
+    static int sum;
 
-	private static void nQeen(int start) {
-		Stack<Integer> stack = new Stack<>();
-		stack.push(start); // (0, start)위치를 스택에 푸시
-		int left = start-1;
-		int right = start+1;
-		checked = new boolean[n][n];
-		int queen =1;
-		
-		while(!stack.isEmpty()) {
-			int y = stack.pop();
-			
-			if(left >=0 && right<n) {
-				checked[queen+1][left] = true;
-				checked[queen+1][y] = true;
-				checked[queen+1][right] = true;
-			}
-			
-			for(int i = 0 ; i < n ;i++) {
-				if(!checked[queen+1][i]) {
-					stack.push(i);
-					queen++;
-				}
-			}
-			
-			left--;
-			right++;
-			int flag = 0 ;
-			
-			if(queen == n ) {
-				cnt++;
-			}
-			
-			for(int i = 0 ; i < n ; i++) {
-				if(checked[queen+1][i]) {
-					flag =1;
-				}
-			}
-			if(flag == 1) {
-				continue;
-			}
-		}
-	}
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        col = new int[n + 1];
+        sum = 0;
+        nQueen(0);
+        System.out.println(sum);
+    }
+
+    // 서로 공격할 수 있는 가능성이 있는지를 체크
+    public static boolean check(int i) {
+        int k = 1;
+        boolean check = true;
+
+        while (k < i && check) {
+        	if (col[i] == col[k] || Math.abs(col[i] - col[k]) == i - k) // 같은 열이나 대각선 상에 존재하는가?
+        		check = false;
+        	k++;
+        }
+
+        return check;
+    }
+
+    public static void nQueen(int i) {
+        if (check(i)) { 
+            if (i == n) { // 모든 퀸을 놓을 수 있다면, 답을 출력하고 리턴
+                sum++;
+                return;
+            }
+            for (int j = 1; j <= n; j++) { // 다음 퀸을 놓기 위해 반복
+                col[i + 1] = j;
+                nQueen(i + 1);
+            }
+        }
+    }
 }
-//n * n 사이즈 판위에 n개의 퀸이 있다
-//서로 공격할 수 없게 놓는 경우의 수
-//하나의 행, 열에 하나의 퀸
-//같은 대각선상에 하나의 퀸
-// 1 1 1 1 1 1 1 1
-// 0 0 1 1 1 0 0 0
-// 0 1 0 1 0 1 0 0
-// 1 0 0 1 0 0 1 0
-// 0 0 0 1 0 0 0 1
-// 0 0 0 1 0 0 0 0
-// 0 0 0 1 0 0 0 0
-// 0 0 0 1 0 0 0 0
-
-
-
-
-
-
-
