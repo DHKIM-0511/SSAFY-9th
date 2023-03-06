@@ -43,14 +43,11 @@ public class IM복원문제 {
 					}
 				}
 			}
-			
 			if(satisfy) {
 				System.out.println("#"+tc+" "+ans);
 			} else {
 				System.out.println("#"+tc+" -1");
 			}
-			
-			
 		}
 	}
 }

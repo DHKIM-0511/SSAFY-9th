@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 수찾기_1920 {
+	static int n;
+	static int m;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -25,8 +27,7 @@ public class 수찾기_1920 {
 		}
 		BS(arr,search);
 	}
-	static int n;
-	static int m;
+	
 	private static void BS(int[] arr, int[] search) {
 		Arrays.sort(arr);
 		

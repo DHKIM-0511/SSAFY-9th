@@ -15,6 +15,7 @@ public class 수열_2559 {
 
         int[] temp = new int[n];
         st = new StringTokenizer(br.readLine());
+        
         for (int i = 0; i < n; i++) {
             temp[i] = Integer.parseInt(st.nextToken());
         }

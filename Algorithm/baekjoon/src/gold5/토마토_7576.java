@@ -29,28 +29,33 @@ public class 토마토_7576 {
 	}
 	
 	public static void main(String[] args) throws IOException{
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		
 		m = Integer.parseInt(st.nextToken());
 		n = Integer.parseInt(st.nextToken());
+		
 		int[][] map = new int[n][m];
 		
-
 		Queue<dot> dq = new LinkedList<>();
+		
 		boolean check = false;
+		
 		for(int i = 0 ; i < n ; i ++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0 ; j < m ; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
 				if(map[i][j] == 1) {
 					dot d = new dot(i, j);
-					dq.add(d);
+					dq.add(d); // 시작위치를 q 에 넣는다
 				}
-				if(map[i][j] == 0) {
+				if(map[i][j] == 0) { 
 					check =  true;
 				}
 			}
 		}
+		
 		// 0 이 없으면 0출력후 종료
 		if(!check) {
 			System.out.println(0);
@@ -76,23 +81,21 @@ public class 토마토_7576 {
 		int[] dr = {-1 , 1 , 0 , 0};
 		int[] dc = { 0 , 0, -1 , 1};
 		
-			while(!dq.isEmpty()) {
+		while(!dq.isEmpty()) {
+			dot tmp = dq.poll();
+		
+			for(int i = 0 ; i < 4 ; i++) {
+				int nr = tmp.x + dr[i];
+				int nc = tmp.y + dc[i];
 				
-				dot tmp = dq.poll();
-			
-				for(int i = 0 ; i < 4 ; i++) {
-					int nr = tmp.x + dr[i];
-					int nc = tmp.y + dc[i];
-					
-					if(nr >= 0 && nr < n && nc >= 0 && nc < m) {
-						if(map[nr][nc]==0) {
-							
-							map[nr][nc] = map[tmp.x][tmp.y] + 1;
-							dot d = new dot(nr , nc);
-							dq.offer(d);
-						}
+				if(nr >= 0 && nr < n && nc >= 0 && nc < m) {
+					if(map[nr][nc]==0) {
+						map[nr][nc] = map[tmp.x][tmp.y] + 1;
+						dot d = new dot(nr , nc);
+						dq.offer(d);
 					}
 				}
 			}
+		}
 	}
 }

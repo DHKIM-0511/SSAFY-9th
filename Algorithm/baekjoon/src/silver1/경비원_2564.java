@@ -29,59 +29,66 @@ public class 경비원_2564 {
 		//idx = 4 이면 0123
 		
 		for(int i = 0 ; i < n ; i++) {
-				if(line == 1) {
-					if(store[i][0] == 1) {
-						d+= Math.abs(idx-store[i][1]);
-					}else if(store[i][0] == 2) {
-						int min = y+idx+store[i][1];
-						if(min > y+(x-idx)+(x-store[i][1]))
-							min =y+(x-idx)+(x-store[i][1]);
-						d+=min;
-					}else if(store[i][0] == 3) {
-						d = d + idx + store[i][1];
-					}else {
-						d = d+ (x-idx) + store[i][1];
-					}
-				}else if(line == 2) {
-					if(store[i][0] == 1) {
-						int min = y+idx+store[i][1];
-						if(min > y+(x-idx)+(x-store[i][1]))
-							min =y+(x-idx)+(x-store[i][1]);
-						d+=min;
-					}else if(store[i][0] == 2) {
-						d+= Math.abs(idx-store[i][1]);
-					}else if(store[i][0] == 3) {
-						d = d + idx + (y-store[i][1]);
-					}else {
-						d = d+ (x-idx) +(y-store[i][1]);
-					}
-				}else if(line == 3) {
-					if(store[i][0] == 1) {
-						d = d + idx + store[i][1];
-					}else if(store[i][0] == 2) {
-						d = d+ (y-idx) + store[i][1];
-					}else if(store[i][0] == 3) {
-						d+= Math.abs(idx-store[i][1]);
-					}else {
-						int min = x+idx+store[i][1];
-						if(min > x+(y-idx)+(y-store[i][1]))
-							min =x+(y-idx)+(y-store[i][1]);
-						d+=min;
-					}
-				}else{
-					if(store[i][0] == 1) {
-						d = d+ idx + (x-store[i][1]);
-					}else if(store[i][0] == 2) {
-						d = d+ (y-idx) + (x-store[i][1]);
-					}else if(store[i][0] == 3) {
-						int min = x+idx+store[i][1];
-						if(min > x+(y-idx)+(y-store[i][1]))
-							min =x+(y-idx)+(y-store[i][1]);
-						d+=min;
-					}else {
-						d+= Math.abs(idx-store[i][1]);
-					}
+			
+			if(line == 1) {
+				if(store[i][0] == 1) {
+					d+= Math.abs(idx-store[i][1]);
+				}else if(store[i][0] == 2) {
+					int min = y+idx+store[i][1];
+					if(min > y+(x-idx)+(x-store[i][1]))
+						min =y+(x-idx)+(x-store[i][1]);
+					d+=min;
+				}else if(store[i][0] == 3) {
+					d = d + idx + store[i][1];
+				}else {
+					d = d+ (x-idx) + store[i][1];
 				}
+			}
+			
+			else if(line == 2) {
+				if(store[i][0] == 1) {
+					int min = y+idx+store[i][1];
+					if(min > y+(x-idx)+(x-store[i][1]))
+						min =y+(x-idx)+(x-store[i][1]);
+					d+=min;
+				}else if(store[i][0] == 2) {
+					d+= Math.abs(idx-store[i][1]);
+				}else if(store[i][0] == 3) {
+					d = d + idx + (y-store[i][1]);
+				}else {
+					d = d+ (x-idx) +(y-store[i][1]);
+				}
+			}
+			
+			else if(line == 3) {
+				if(store[i][0] == 1) {
+					d = d + idx + store[i][1];
+				}else if(store[i][0] == 2) {
+					d = d+ (y-idx) + store[i][1];
+				}else if(store[i][0] == 3) {
+					d+= Math.abs(idx-store[i][1]);
+				}else {
+					int min = x+idx+store[i][1];
+					if(min > x+(y-idx)+(y-store[i][1]))
+						min =x+(y-idx)+(y-store[i][1]);
+					d+=min;
+				}
+			}
+			
+			else{
+				if(store[i][0] == 1) {
+					d = d+ idx + (x-store[i][1]);
+				}else if(store[i][0] == 2) {
+					d = d+ (y-idx) + (x-store[i][1]);
+				}else if(store[i][0] == 3) {
+					int min = x+idx+store[i][1];
+					if(min > x+(y-idx)+(y-store[i][1]))
+						min =x+(y-idx)+(y-store[i][1]);
+					d+=min;
+				}else {
+					d+= Math.abs(idx-store[i][1]);
+				}
+			}
 		}
 	}
 }

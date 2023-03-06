@@ -87,6 +87,7 @@ public class 러시아국기같은깃발_4613 {
 //            int M = sc.nextInt();
 //             
 //            char[][] map = new char[N][M];
+
 //            for(int r=0; r<N; r++) {
 //                String str = sc.next();
 //                char[] arr = str.toCharArray();

@@ -10,6 +10,7 @@ public class 팩토리얼_10872 {
 		
 		int n = Integer.parseInt(br.readLine());
 		int ans = 1;
+		
 		if(n == 0 || n == 1) {
 			ans = 1;
 		}else {
