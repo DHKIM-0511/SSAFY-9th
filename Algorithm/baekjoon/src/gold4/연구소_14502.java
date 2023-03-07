@@ -34,10 +34,7 @@ public class 연구소_14502 {
 		
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
-		
 		map = new int[n][m];
-		
-		
 		
 		for(int i = 0 ; i < n ; i++) {
 			st= new StringTokenizer(br.readLine());

@@ -79,7 +79,6 @@ public class Main {
 //				chosen[cnt] = 0; // 백트래킹 해주면 좋다.
 			}
 		}
-		
 	}
 	private static void virus(int[][] map) {
 		int[][] copyMap = new int[n][m];
