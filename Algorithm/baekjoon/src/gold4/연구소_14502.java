@@ -12,14 +12,11 @@ import java.util.StringTokenizer;
 
 public class 연구소_14502 {
 	
-	static int n,m;
-	static int cnt = 0;
-	
-	static Queue<node> q = new LinkedList<>();
+	static int n,m,max;
 	static int[][] map;
-	static LinkedList<node> list;
-	static int max;
+	static LinkedList<node> list = new LinkedList<>();
 	static ArrayList<node> list_virus = new ArrayList<>();
+	
 	
 	public static class node{
 		int r;
@@ -40,18 +37,17 @@ public class 연구소_14502 {
 		
 		map = new int[n][m];
 		
-		list = new LinkedList<>();
+		
 		
 		for(int i = 0 ; i < n ; i++) {
 			st= new StringTokenizer(br.readLine());
 			for(int j = 0 ; j < m ; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
-				
-					if(map[i][j] == 2) {
+				if(map[i][j] == 2) {
 					node nd = new node(i,j);
 					list_virus.add(nd);
-					}
-					else {
+				}
+				else if(map[i][j]==0){
 					node o = new node(i, j);
 					list.add(o);
 				}
@@ -88,14 +84,15 @@ public class 연구소_14502 {
 	// arr = 0 이게중요. 원상복구 ( = 백트래킹)
 	// 여기서 마지막으로 max 값을 갱신하면됩니다. (max 값은 글로벌변수로, 누적갱신)
 	
-	private static void buildWall(int cnt, int last_idx, int[] chosen) {// 백트래킹
+	private static void buildWall(int cnt, int last_idx, int[] chosen) {// 재귀
 		if(cnt >= 3) {
 //			System.out.println(Arrays.toString(chosen));
-			// chosen[] =  {0,5,7}; = 0좌표가 들어있는 리스트의 idx
+			// chosen[] =  {0,5,7};
 			for(int i=0; i<chosen.length; i++) {
 				node nn = list.get(chosen[i]);
 				int row = nn.r;
 				int col = nn.c;
+				
 				map[row][col] = 1;
 			}
 			
@@ -107,15 +104,18 @@ public class 연구소_14502 {
 				node nn = list.get(chosen[i]);
 				int row = nn.r;
 				int col = nn.c;
+				
 				map[row][col] = 0;
 			}
+			
 		}
 		
 		else {
 			for(int i=last_idx; i<list.size(); i++) {
-				// chosen[0] = 0
-				// chosen[1] = 1
-				// chosen[2] = 2
+				//cnt2일때 cnt 3실행(bfs및 재귀종료) -> c[2]값을 다음 값으로for문으로 바꿔줌
+				// 결과적으로 chosen배열의 2번 idx가 계속 바뀌면서 for문을 끝까지 실행..
+				// cnt 1로 돌아와서 cnt 1을 for문을 통해 다음값으로 변경
+				// cnt 2값 할당 후 cnt 3 실행 ..하며 모든 경우의수를 탐색한다
 				chosen[cnt] = i;
 				buildWall(cnt + 1, i+1, chosen);
 //				chosen[cnt] = 0; // 백트래킹 해주면 좋다.
@@ -150,7 +150,6 @@ public class 연구소_14502 {
 				if(nr >= 0 && nr < n && nc >=0 && nc < m) {
 					if(map_copy[nr][nc] == 0) {
 						map_copy[nr][nc] = 2;
-//						map[nr][nc] = 2;
 						node o = new node(nr,nc);
 						q2.offer(o);
 					}
