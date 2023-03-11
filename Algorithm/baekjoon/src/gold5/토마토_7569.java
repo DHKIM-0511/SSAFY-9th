@@ -69,7 +69,6 @@ public class 토마토_7569 {
 				}
 			}
 		}
-
 		System.out.println(max - 1); // 아니면 max - 1
 	}
 
@@ -92,8 +91,6 @@ public class 토마토_7569 {
 					}
 				}
 			}
-		
 		}
-		
 	}
 }
