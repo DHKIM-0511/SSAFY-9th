@@ -9,8 +9,9 @@ public class 랜선자르기_1654 {
 		int n = sc.nextInt(); // 자른 후 랜선 수
 		
 		int[] line = new int[k]; // 각 랜선의 길이
-		int left = 0;
-		int right = 0;
+		long left = 0;
+		long right = 0;
+		long mid = 0;
 		
 		for(int i = 0 ; i < k ; i++) {
 			line[i] = sc.nextInt();
@@ -22,13 +23,13 @@ public class 랜선자르기_1654 {
 		right++; // 초기값에서 0이 들어가는것을 방지
 		
 		while(left < right) {
-			int mid = (left+right) /2;
+			mid = (left+right) /2;
 			
 			//잘랐을 때 갯수
-			int cnt = 0;
+			long cnt = 0;
 			
 			for(int i = 0 ; i < k ; i++) {
-				 cnt+=(line[i]/mid);
+				 cnt += line[i]/mid;
 			}
 			if(cnt < n) {
 				right = mid;
