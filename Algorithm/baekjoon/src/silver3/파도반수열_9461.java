@@ -8,7 +8,7 @@ public class 파도반수열_9461 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+		// -1 = 탐색하지 않은곳
 		for(int i = 0; i < 101; i++) {
 			arr[i] = -1;
 		}
@@ -27,7 +27,8 @@ public class 파도반수열_9461 {
 	}
 
 	private static long P(int n) {
-		if(arr[n] == -1) {	// 탐색하지 않은 인덱스일 경우 재귀호출
+		// 탐색하지 않은 인덱스일 경우 재귀호출을 통해 시간 절약
+		if(arr[n] == -1) {	
 			arr[n] = P(n - 2) + P(n - 3);
 		}
 		return arr[n];

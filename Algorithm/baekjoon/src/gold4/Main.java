@@ -40,9 +40,11 @@ public class Main {
 				map[i][j] = Integer.parseInt(st.nextToken());
 				
 				if(map[i][j] == 2) {
+					 // 바이러스 인덱스 리스트에 추가
 					index idx = new index(i, j);
 					virusIndex.add(idx);
 				}else if(map[i][j] == 0) {
+					// 0 (현재 safeZone 리스트에 추가)
 					index idx = new index(i, j);
 					list0.add(idx);
 				}
@@ -69,6 +71,7 @@ public class Main {
 			}
 			
 		}else {
+			//0번의 IDX가 들어있는 리스트만큼 lastIDX부터 반복문 실행
 			for(int i = lastIndex ; i < list0.size() ; i++) {
 				//cnt2일때 cnt 3실행(bfs및 재귀종료) -> c[2]값을 다음 값으로for문으로 바꿔줌
 				// 결과적으로 chosen배열의 2번 idx가 계속 바뀌면서 for문을 끝까지 실행..
@@ -76,17 +79,18 @@ public class Main {
 				// cnt 2값 할당 후 cnt 3 실행 ..하며 모든 경우의수를 탐색한다
 				chosen[cnt] = i;
 				buildWall(cnt+1 , i+1 , chosen);
-//				chosen[cnt] = 0; // 백트래킹 해주면 좋다.
+
 			}
 		}
 	}
 	private static void virus(int[][] map) {
+		//전역변수 map을 복사
 		int[][] copyMap = new int[n][m];
 		
 		for(int i = 0 ; i< n ; i++) {
 			copyMap[i] = Arrays.copyOf(map[i], m);
 		}
-		
+		//바이러스 인덱스를 q에 추가
 		Queue<index> q = new LinkedList<>();
 		for(int i = 0 ; i < virusIndex.size() ; i++) {
 			q.offer(virusIndex.get(i));
